@@ -21,10 +21,12 @@ namespace Snake_Ladder
             }
             if (pl1Position == FinalPosition)
             {
+                Console.WriteLine("Player 1 new position: " + FinalPosition);
                 Console.WriteLine("Player 1 won.");
             }
             else
             {
+                Console.WriteLine("Player 2 new position: " + FinalPosition);
                 Console.WriteLine("Player 2 won.");
             }
         }
@@ -36,7 +38,6 @@ namespace Snake_Ladder
             int options = random.Next(1, 4);
             if (position + dieNumber == FinalPosition)
             {
-                Console.WriteLine("Player " + playerNo + " new position: " + FinalPosition);
                 return FinalPosition;
             }
             if (position + dieNumber > FinalPosition)
@@ -51,8 +52,8 @@ namespace Snake_Ladder
                  case LADDER:
                     Console.WriteLine("Ladder");
                     position += dieNumber;
-                    play(position, playerNo);
-                    break;
+                    position=play(position, playerNo);
+                    return position;
                  case SNAKE:
                     Console.WriteLine("Snake");
                     if (position - dieNumber > 0)
