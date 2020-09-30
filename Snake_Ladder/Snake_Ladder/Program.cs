@@ -8,6 +8,9 @@ namespace Snake_Ladder
         {
             int position = 0;
             Console.WriteLine("Position: "+position);
+            Random random = new Random();
+            int dieNumber = random.Next(1, 7);
+            Console.WriteLine("Number came from die: " + dieNumber);
         }
     }
 }
