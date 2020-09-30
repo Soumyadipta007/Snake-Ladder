@@ -7,7 +7,7 @@ namespace Snake_Ladder
         static void Main(string[] args)
         {
             int position = 0;
-            Console.WriteLine("Position: " + position);
+            Console.WriteLine("Position : " + position);
             const int FinalPosition = 100;
             const int NOPLAY = 1;
             const int LADDER = 2;
