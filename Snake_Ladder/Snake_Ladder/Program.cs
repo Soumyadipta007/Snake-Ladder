@@ -1,6 +1,5 @@
 ﻿using System;
 
-namespace Snake_Ladder
 {
     class Program
     {
@@ -8,15 +7,20 @@ namespace Snake_Ladder
         {
             int position = 0;
             Console.WriteLine("Position: "+position);
+            const int NOPLAY = 1;
+            const int LADDER = 2;
+	    const int SNAKE = 3;
             while (position < 100)
-            {
                 Random random = new Random();
                 int dieNumber = random.Next(1, 7);
                 Console.WriteLine("Number came from die: " + dieNumber);
+                if(position+dieNumber>=FinalPosition)
+                {
+                    int newPosition=position+dieNumber;
+                    Console.WriteLine("New Position: "+newPosition);
+                    break;
+                }
                 int options = random.Next(1, 4);
-                const int NOPLAY = 1;
-                const int LADDER = 2;
-                const int SNAKE = 3;
                 switch (options)
                 {
                     case NOPLAY:
