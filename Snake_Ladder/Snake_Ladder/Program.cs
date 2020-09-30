@@ -51,6 +51,7 @@ namespace Snake_Ladder
                  case LADDER:
                     Console.WriteLine("Ladder");
                     position += dieNumber;
+                    play(position, playerNo);
                     break;
                  case SNAKE:
                     Console.WriteLine("Snake");
