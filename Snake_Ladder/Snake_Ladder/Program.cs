@@ -8,7 +8,8 @@ namespace Snake_Ladder
         {
             int position = 0;
             Console.WriteLine("Position: "+position);
-            while (position < 100)
+            const int FinalPosition = 100;
+            while (position != FinalPosition)
             {
                 Random random = new Random();
                 int dieNumber = random.Next(1, 7);
@@ -24,7 +25,17 @@ namespace Snake_Ladder
                         break;
                     case LADDER:
                         Console.WriteLine("Ladder");
-                        position += dieNumber;
+                        if(position+dieNumber <= FinalPosition)
+                            position += dieNumber;
+                        else
+                        {
+                            while(position + dieNumber > FinalPosition)
+                            {
+                                dieNumber = random.Next(1, 7);
+                                Console.WriteLine("Number came from die: " + dieNumber);
+                            }
+                            position += dieNumber;
+                        }
                         break;
                     case SNAKE:
                         Console.WriteLine("Snake");
