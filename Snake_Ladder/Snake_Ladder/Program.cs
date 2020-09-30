@@ -9,15 +9,26 @@ namespace Snake_Ladder
             int position = 0;
             Console.WriteLine("Position: "+position);
             const int FinalPosition = 100;
+            int countDieRoll = 0;
+            const int NOPLAY = 1;
+            const int LADDER = 2;
+            const int SNAKE = 3;
             while (position != FinalPosition)
             {
                 Random random = new Random();
                 int dieNumber = random.Next(1, 7);
+                countDieRoll++;
                 Console.WriteLine("Number came from die: " + dieNumber);
                 int options = random.Next(1, 4);
-                const int NOPLAY = 1;
-                const int LADDER = 2;
-                const int SNAKE = 3;
+                if (position + dieNumber == FinalPosition)
+                {
+                    Console.WriteLine("New Position: " + FinalPosition);
+                    break;
+                }
+                if(position + dieNumber>FinalPosition)
+                {
+                    options = NOPLAY;
+                }
                 switch (options)
                 {
                     case NOPLAY:
@@ -25,17 +36,7 @@ namespace Snake_Ladder
                         break;
                     case LADDER:
                         Console.WriteLine("Ladder");
-                        if(position+dieNumber <= FinalPosition)
-                            position += dieNumber;
-                        else
-                        {
-                            while(position + dieNumber > FinalPosition)
-                            {
-                                dieNumber = random.Next(1, 7);
-                                Console.WriteLine("Number came from die: " + dieNumber);
-                            }
-                            position += dieNumber;
-                        }
+                        position += dieNumber;
                         break;
                     case SNAKE:
                         Console.WriteLine("Snake");
@@ -47,6 +48,7 @@ namespace Snake_Ladder
                 }
                 Console.WriteLine("New Position: " + position);
             }
+            Console.WriteLine("Dice was rolled " + countDieRoll + " times");
         }
     }
 }
