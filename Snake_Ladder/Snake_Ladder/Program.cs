@@ -4,7 +4,7 @@ namespace Snake_Ladder
 {
     class Program
     {
-        const int FinalPosition = 100;
+        public const int FinalPosition = 100;
         const int NOPLAY = 1;
         const int LADDER = 2;
         const int SNAKE = 3;
@@ -21,11 +21,11 @@ namespace Snake_Ladder
             }
             if (pl1Position == FinalPosition)
             {
-                Console.WriteLine("Player 1 won");
+                Console.WriteLine("Player 1 won.");
             }
             else
             {
-                Console.WriteLine("Player 2 won");
+                Console.WriteLine("Player 2 won.");
             }
         }
         public static int play(int position,int playerNo)
